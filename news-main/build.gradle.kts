@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.androidx.material3)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation("io.coil-kt:coil:2.6.0")
 
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
