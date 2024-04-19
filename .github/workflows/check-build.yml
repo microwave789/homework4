@@ -26,3 +26,6 @@ jobs:
               uses: jwgmeligmeyling/checkstyle-github-action@master
               with:
                   path: '**/detekt.xml'
+
+            -   name: Make gradlew executable
+                run: chmod +x ./gradlew
