@@ -6,7 +6,11 @@ interface MergeStrategy<E> {
 }
 
 internal class RequestResponseMergeStrategy<T : Any> : MergeStrategy<RequestResult<T>> {
-    override fun merge(right: RequestResult<T>, left: RequestResult<T>): RequestResult<T> {
+    @Suppress("CyclomaticComplexMethod")
+    override fun merge(
+        right: RequestResult<T>,
+        left: RequestResult<T>,
+    ): RequestResult<T> {
         return when {
             right is RequestResult.InProgress && left is RequestResult.InProgress -> merge(right, left)
             right is RequestResult.Success && left is RequestResult.InProgress -> merge(right, left)
