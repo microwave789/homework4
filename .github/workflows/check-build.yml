@@ -2,7 +2,7 @@ name: Code quality check
 run-name: Check code quality with linter
 on: [push]
 jobs:
-    Linters:
+    Detekt:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -12,18 +12,17 @@ jobs:
               uses: actions/setup-java@v4
               with:
                   distribution: 'temurin'
-                  java-version: 8
+                  java-version: 17
 
             - uses: gradle/gradle-build-action@v3
               with:
                   cache-disabled: true
 
-            -   name: Detekt
-                shell: bash
-                run: ./gradlew detekt
+            - name: Detekt
+              shell: bash
+              run: ./gradlew detekt
 
-            -   name: Publish Detekt reports
-                uses: jwgmeligmeyling/checkstyle-github-action@master
-                with:
-                    path: '**/detekt.xml'
-
+            - name: Publish Detekt reports
+              uses: jwgmeligmeyling/checkstyle-github-action@master
+              with:
+                  path: '**/detekt.xml'
