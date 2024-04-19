@@ -12,7 +12,11 @@ internal class RequestResponseMergeStrategy<T : Any> : MergeStrategy<RequestResu
         left: RequestResult<T>,
     ): RequestResult<T> {
         return when {
-            right is RequestResult.InProgress && left is RequestResult.InProgress -> merge(right, left)
+            right is RequestResult.InProgress && left is RequestResult.InProgress -> merge(
+                right,
+                left
+            )
+
             right is RequestResult.Success && left is RequestResult.InProgress -> merge(right, left)
             right is RequestResult.InProgress && left is RequestResult.Success -> merge(right, left)
             right is RequestResult.Success && left is RequestResult.Error -> merge(right, left)

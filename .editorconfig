@@ -19,7 +19,6 @@ ij_wrap_on_typing = false
 [{*.kt,*.kts}]
 insert_final_newline = true
 parameter-list-wrapping = true
-
 ktlint_code_style = ktlint_official
 ktlint_ignore_back_ticked_identifier = true
 ktlint_standard = enabled

@@ -55,7 +55,10 @@ class ArticleRepository @Inject constructor(
             }
             .onEach { result ->
                 if (result.isFailure) {
-                    logger.e(LOG_TAG, "ERROR getting data from server. Reason = ${result.exceptionOrNull()}")
+                    logger.e(
+                        LOG_TAG,
+                        "ERROR getting data from server. Reason = ${result.exceptionOrNull()}"
+                    )
                 }
             }
             .map { it.toRequestResult() }
