@@ -3,6 +3,7 @@ package com.example.news.main
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -111,22 +112,32 @@ private fun ProgressIndicator(state: State.Loading){
  internal fun Article(
     @PreviewParameter(ArticlePreviewProvider::class, limit = 1)article: ArticleUI,
  ) {
+     Row {
 
-Column(modifier = Modifier.padding(8.dp)){
-    article.imageUrl?.let { imageUrl ->
-        AsyncImage(
-            model = article.imageUrl,
-            contentDescription = stringResource(R.string.content_desc_item_article_image)
-        )
-    }
-    Text(
-        text = article.title ?: "No TITLE",
-        style = NewsTheme.typography.headlineMedium,
-        maxLines = 1)
-       Spacer(modifier = Modifier.size(4.dp))
-       Text(text = article.description, style = NewsTheme.typography.bodyMedium, maxLines = 3)
-   }
-}
+             article.imageUrl?.let { imageUrl ->
+                 AsyncImage(
+                     model = article.imageUrl,
+                     contentDescription = stringResource(R.string.content_desc_item_article_image)
+                 )
+             }
+             Spacer(modifier = Modifier.size(4.dp))
+             Column(modifier = Modifier.padding(8.dp)){
+                 Text(
+                     text = article.title ?: "No TITLE",
+                     style = NewsTheme.typography.headlineMedium,
+                     maxLines = 1)
+                 Spacer(modifier = Modifier.size(4.dp))
+                 Text(
+                     text = article.description,
+                     style = NewsTheme.typography.bodyMedium,
+                     maxLines = 3)
+
+         }
+     }
+     }
+
+
+
 
 
 
