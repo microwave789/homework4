@@ -1,5 +1,4 @@
 package com.example.newssearchapphometask3
-
 import android.content.Context
 import com.example.common.AndroidLogcatLogger
 import com.example.common.AppDispatchers
@@ -13,7 +12,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import javax.inject.Singleton
-
 
 @Module
 @InstallIn(SingletonComponent::class)
